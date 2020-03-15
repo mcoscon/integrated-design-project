@@ -1,0 +1,39 @@
+[debug] [2020-03-15T06:45:13.197Z] ----------------------------------------------------------------------
+[debug] [2020-03-15T06:45:13.219Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-03-15T06:45:13.219Z] CLI Version:   7.15.0
+[debug] [2020-03-15T06:45:13.219Z] Platform:      win32
+[debug] [2020-03-15T06:45:13.219Z] Node Version:  v10.15.3
+[debug] [2020-03-15T06:45:13.297Z] Time:          Sun Mar 15 2020 14:45:13 GMT+0800 (Malaysia Time)
+[debug] [2020-03-15T06:45:13.298Z] ----------------------------------------------------------------------
+[debug] [2020-03-15T06:45:13.298Z] 
+[debug] [2020-03-15T06:45:13.388Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-15T06:45:13.389Z] > authorizing via signed-in user
+[debug] [2020-03-15T06:45:13.390Z] [iam] checking project idp-app-70f95 for permissions ["firebase.projects.get"]
+[debug] [2020-03-15T06:45:13.392Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/idp-app-70f95:testIamPermissions  
+
+[debug] [2020-03-15T06:45:15.084Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-15T06:45:15.087Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/idp-app-70f95  
+ 
+[debug] [2020-03-15T06:45:15.614Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\USER\Desktop\idp-app\idp-app'...
+[info] 
+[debug] [2020-03-15T06:45:15.687Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/idp-app-70f95/webApps/-/config  
+ 
+[debug] [2020-03-15T06:45:16.714Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "C:\Users\USER\Desktop\idp-app\idp-app\functions" for Cloud Functions...
+[debug] [2020-03-15T06:45:17.828Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-15T06:45:17.828Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-15T06:45:17.828Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-15T06:45:17.829Z] [worker-~diagnostic~-8905004a-08ab-4e21-bf6c-34c14909d5e4]: Assigning socketPath: \\?\pipe\C:\Users\USER\Desktop\idp-app\idp-app\functions\10952
+[debug] [2020-03-15T06:45:17.830Z] [worker-~diagnostic~-8905004a-08ab-4e21-bf6c-34c14909d5e4]: BUSY
+[debug] [2020-03-15T06:45:18.905Z] [runtime-status] [10952] Functions runtime initialized. {"cwd":"C:\\Users\\USER\\Desktop\\idp-app\\idp-app\\functions","node_version":"10.15.3"}
+[debug] [2020-03-15T06:45:18.907Z] [runtime-status] [10952] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-15T06:45:18.940Z] [runtime-status] [10952] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"C:\\Users\\USER\\Desktop\\idp-app\\idp-app\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-03-15T06:45:18.952Z] [runtime-status] [10952] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\USER\\Desktop\\idp-app\\idp-app\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-15T06:45:18.953Z] [runtime-status] [10952] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\USER\\Desktop\\idp-app\\idp-app\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-15T06:45:19.738Z] [worker-~diagnostic~-8905004a-08ab-4e21-bf6c-34c14909d5e4]: IDLE
