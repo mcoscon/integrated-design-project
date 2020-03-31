@@ -1,4 +1,6 @@
-import React from "react";
+// https://www.youtube.com/watch?v=rSgbYCdc4G0
+import React, {useState, useEffect} from "react";
+import fire from '/home/marcos/Documents/github-stuff/shards-dashboard-react/src/fire.js'
 import PropTypes from "prop-types";
 import {
   Card,
@@ -8,60 +10,95 @@ import {
   ButtonGroup,
   Button,
   Row,
-  Col
+  Col,
+  Modal,
+  ModalBody, 
+  ModalHeader
 } from "shards-react";
 
-const Discussions = ({ title, discussions }) => (
+
+function firebaseData(){
+  const [data, setData] = useState([]);
+  useEffect(()=>{
+    fire
+      .firestore()
+      .collection('test')
+      .onSnapshot((snapshot)=>{
+        const newData = snapshot.docs.map((doc) => ({
+          id: doc.id, 
+          ...doc.data()
+        }))
+        //console.log("Document data:", snapshot.docs[0].data())
+        setData(newData)
+      })
+  }, [])
+  return data
+}
+
+function Discussions ({title, discussions})
+{
+  const datas = firebaseData();
+  const [modalOpen, setmodalOpen] = useState(false)
+  const handleButtonClick = () => {
+    setmodalOpen(true)
+    console.log(modalOpen)
+    console.log("Clicked!!")
+  }
+
+  const handleModalClick = () => {
+    setmodalOpen(false);
+  }
+  return(
   <Card small className="blog-comments">
     <CardHeader className="border-bottom">
-      <h6 className="m-0">{title}</h6>
+      <h6 className="m-0"> Pending Summons </h6>
     </CardHeader>
-
     <CardBody className="p-0">
-      {discussions.map((discussion, idx) => (
-        <div key={idx} className="blog-comments__item d-flex p-3">
+      {datas.map((data) => (
+        <div key={data.id} className="blog-comments__item d-flex p-3">
           {/* Avatar */}
           <div className="blog-comments__avatar mr-3">
-            <img src={discussion.author.image} alt={discussion.author.name} />
+            
+            {/*<img src={discussion.author.image} alt={discussion.author.name} />*/}
           </div>
 
           {/* Content */}
           <div className="blog-comments__content">
             {/* Content :: Title */}
             <div className="blog-comments__meta text-mutes">
-              <a className="text-secondary" href={discussion.author.url}>
-                {discussion.author.name}
+              <a className="text-secondary" /*href={discussion.author.url}*/>
+                {data.name}
               </a>{" "}
               on{" "}
-              <a className="text-secondary" href={discussion.post.url}>
-                {discussion.post.title}
+              <a className="text-secondary" /*href={discussion.post.url}*/>
+                {data.name}
               </a>
-              <span className="text-mutes">- {discussion.date}</span>
+              <span className="text-mutes">- {data.name}</span>
             </div>
 
             {/* Content :: Body */}
-            <p className="m-0 my-1 mb-2 text-muted">{discussion.body}</p>
+            <p className="m-0 my-1 mb-2 text-muted">{data.name}</p>
 
             {/* Content :: Actions */}
             <div className="blog-comments__actions">
               <ButtonGroup size="sm">
+                <Button theme="white" onClick = {handleButtonClick}>
+                  <span className="text-success">
+                  </span>{" "}
+                  Details
+                </Button>
+                <Modal open={modalOpen} sm="lg">
+                  <ModalHeader> Location </ModalHeader>
+                  <ModalBody>👋 {data.name} </ModalBody>
+                  <Button squared theme="light" onClick = {handleModalClick}>
+                    CLOSE
+                  </Button>
+                   </Modal>
                 <Button theme="white">
                   <span className="text-success">
                     <i className="material-icons">check</i>
                   </span>{" "}
-                  Approve
-                </Button>
-                <Button theme="white">
-                  <span className="text-danger">
-                    <i className="material-icons">clear</i>
-                  </span>{" "}
-                  Reject
-                </Button>
-                <Button theme="white">
-                  <span className="text-light">
-                    <i className="material-icons">more_vert</i>
-                  </span>{" "}
-                  Edit
+                  Close Case
                 </Button>
               </ButtonGroup>
             </div>
@@ -74,13 +111,14 @@ const Discussions = ({ title, discussions }) => (
       <Row>
         <Col className="text-center view-report">
           <Button theme="white" type="submit">
-            View All Comments
+            View All Pending Summons
           </Button>
         </Col>
       </Row>
     </CardFooter>
   </Card>
-);
+  );
+      }
 
 Discussions.propTypes = {
   /**
@@ -100,7 +138,7 @@ Discussions.defaultProps = {
       id: 1,
       date: "3 days ago",
       author: {
-        image: require("../../images/avatars/1.jpg"),
+        image: require("../../images/avatars/curtin.jpg"),
         name: "John Doe",
         url: "#"
       },
@@ -114,7 +152,7 @@ Discussions.defaultProps = {
       id: 2,
       date: "4 days ago",
       author: {
-        image: require("../../images/avatars/2.jpg"),
+        image: require("../../images/avatars/newworld.jpeg"),
         name: "John Doe",
         url: "#"
       },
@@ -128,7 +166,7 @@ Discussions.defaultProps = {
       id: 3,
       date: "5 days ago",
       author: {
-        image: require("../../images/avatars/3.jpg"),
+        image: require("../../images/avatars/download.png"),
         name: "John Doe",
         url: "#"
       },

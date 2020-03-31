@@ -14,47 +14,23 @@ const BlogOverview = ({ smallStats }) => (
   <Container fluid className="main-content-container px-4">
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
-      <PageTitle title="Blog Overview" subtitle="Dashboard" className="text-sm-left mb-3" />
+      <PageTitle title="Overview" subtitle="Summons" className="text-sm-left mb-3" />
     </Row>
 
     {/* Small Stats Blocks */}
     <Row>
-      {smallStats.map((stats, idx) => (
-        <Col className="col-lg mb-4" key={idx} {...stats.attrs}>
-          <SmallStats
-            id={`small-stats-${idx}`}
-            variation="1"
-            chartData={stats.datasets}
-            chartLabels={stats.chartLabels}
-            label={stats.label}
-            value={stats.value}
-            percentage={stats.percentage}
-            increase={stats.increase}
-            decrease={stats.decrease}
-          />
-        </Col>
-      ))}
+    {/* Insert code bottom here */}
     </Row>
 
     <Row>
-      {/* Users Overview */}
-      <Col lg="8" md="12" sm="12" className="mb-4">
-        <UsersOverview />
+        {/* Discussions */}
+      <Col lg="5" md="12" sm="12" className="mb-4">
+        <Discussions />
       </Col>
-
+      
       {/* Users by Device */}
       <Col lg="4" md="6" sm="12" className="mb-4">
         <UsersByDevice />
-      </Col>
-
-      {/* New Draft */}
-      <Col lg="4" md="6" sm="12" className="mb-4">
-        <NewDraft />
-      </Col>
-
-      {/* Discussions */}
-      <Col lg="5" md="12" sm="12" className="mb-4">
-        <Discussions />
       </Col>
 
       {/* Top Referrals */}
@@ -75,8 +51,8 @@ BlogOverview.propTypes = {
 BlogOverview.defaultProps = {
   smallStats: [
     {
-      label: "Posts",
-      value: "2,390",
+      label: "Pending Cases",
+      value: "239",
       percentage: "4.7%",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
@@ -93,8 +69,8 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "Pages",
-      value: "182",
+      label: "Locations",
+      value: "25",
       percentage: "12.4",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
@@ -171,3 +147,20 @@ BlogOverview.defaultProps = {
 };
 
 export default BlogOverview;
+/*
+{smallStats.map((stats, idx) => (
+  <Col className="col-lg mb-4" key={idx} {...stats.attrs}>
+    <SmallStats
+      id={`small-stats-${idx}`}
+      variation="1"
+      chartData={stats.datasets}
+      chartLabels={stats.chartLabels}
+      label={stats.label}
+      value={stats.value}
+      percentage={stats.percentage}
+      increase={stats.increase}
+      decrease={stats.decrease}
+    />
+  </Col>
+))}
+*/
