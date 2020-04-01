@@ -19,7 +19,7 @@ const TopReferrals = ({ title, referralData }) => (
       <div className="block-handle" />
     </CardHeader>
 
-    <CardBody className="p-0">
+    <CardBody className="h-100">
       <ListGroup small flush className="list-group-small">
         {referralData.map((item, idx) => (
           <ListGroupItem key={idx} className="d-flex px-3">
@@ -100,14 +100,6 @@ TopReferrals.defaultProps = {
     {
       title: "E-mart",
       value: "1,218"
-    },
-    {
-      title: "Bintang",
-      value: "1,171"
-    },
-    {
-      title: "Airport",
-      value: "38"
     }
   ]
 };

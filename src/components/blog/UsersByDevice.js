@@ -49,11 +49,12 @@ class UsersByDevice extends React.Component {
   render() {
     const { title } = this.props;
     return (
-      <Card small className="h-100">
+      <Card small>
         <CardHeader className="border-bottom">
           <h6 className="m-0">{title}</h6>
         </CardHeader>
-        <CardBody className="d-flex py-0">
+    
+        <CardBody className="h-100">
           <canvas
             height="220"
             ref={this.canvasRef}

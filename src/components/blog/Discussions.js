@@ -1,4 +1,5 @@
 // https://www.youtube.com/watch?v=rSgbYCdc4G0
+// Need to import array of images
 import React, {useState, useEffect} from "react";
 import fire from '/home/marcos/Documents/github-stuff/shards-dashboard-react/src/fire.js'
 import PropTypes from "prop-types";
@@ -13,7 +14,9 @@ import {
   Col,
   Modal,
   ModalBody, 
-  ModalHeader
+  ModalHeader,
+  CardImg
+
 } from "shards-react";
 
 
@@ -49,7 +52,7 @@ function Discussions ({title, discussions})
     setmodalOpen(false);
   }
   return(
-  <Card small className="blog-comments">
+  <Card small className="h-100">
     <CardHeader className="border-bottom">
       <h6 className="m-0"> Pending Summons </h6>
     </CardHeader>
@@ -59,25 +62,30 @@ function Discussions ({title, discussions})
           {/* Avatar */}
           <div className="blog-comments__avatar mr-3">
             
-            {/*<img src={discussion.author.image} alt={discussion.author.name} />*/}
+            {<img src= {data.location} alt="test"/>}
           </div>
 
           {/* Content */}
           <div className="blog-comments__content">
             {/* Content :: Title */}
-            <div className="blog-comments__meta text-mutes">
+            <div className="blog-comments__mseta text-mutes">
               <a className="text-secondary" /*href={discussion.author.url}*/>
-                {data.name}
-              </a>{" "}
-              on{" "}
-              <a className="text-secondary" /*href={discussion.post.url}*/>
+                Case ID: {data.id}
+              </a>
+              {/*<CardImg top src="https://place-hold.it/200x100" />*/}
+              <a className="text-secondary" /*href={discussion.pconst [loading, setLoading] = useState(true)ost.url}*/>
                 {data.name}
               </a>
               <span className="text-mutes">- {data.name}</span>
             </div>
 
             {/* Content :: Body */}
-            <p className="m-0 my-1 mb-2 text-muted">{data.name}</p>
+            <p className="m-0 my-1 mb-2 text-muted">
+              Date: {data.date}
+              </p>
+            <p className="m-0 my-1 mb-2 text-muted">
+            Location: {data.place}
+            </p>
 
             {/* Content :: Actions */}
             <div className="blog-comments__actions">
@@ -88,8 +96,8 @@ function Discussions ({title, discussions})
                   Details
                 </Button>
                 <Modal open={modalOpen} sm="lg">
-                  <ModalHeader> Location </ModalHeader>
-                  <ModalBody>👋 {data.name} </ModalBody>
+                  <ModalHeader> {data.name}</ModalHeader>
+                  <ModalBody>👋 {data.id} </ModalBody>
                   <Button squared theme="light" onClick = {handleModalClick}>
                     CLOSE
                   </Button>
