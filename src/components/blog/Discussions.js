@@ -1,7 +1,7 @@
 // https://www.youtube.com/watch?v=rSgbYCdc4G0
 // Need to import array of images
 import React, {useState, useEffect} from "react";
-import fire from '/home/marcos/Documents/github-stuff/shards-dashboard-react/src/fire.js'
+import firebase from '/home/marcos/Documents/github-stuff/shards-dashboard-react/src/fire.js'
 import PropTypes from "prop-types";
 import {
   Card,
@@ -20,10 +20,31 @@ import {
 } from "shards-react";
 
 
+
+function getImageURL(){
+var storageRef = firebase.storage().ref();
+storageRef.child('images/appendix_diggypod-300x200.jpg').getDownloadURL().then(function(url) {
+  // `url` is the download URL for 'images/stars.jpg
+    console.log(url);
+    // Or inserted into an <img> element:
+    var img = document.getElementById('myimg');
+    img.src = url;
+  }).catch(function(error) {
+    // Handle any errors
+  });
+}
+
+
+
 function firebaseData(){
+  /*
+  var storage = firebase.storage();
+var storageRef = storage.ref();
+var spaceRef = storageRef.child('images/appendix_diggypod-300x200.jpg');
+*/
   const [data, setData] = useState([]);
   useEffect(()=>{
-    fire
+    firebase
       .firestore()
       .collection('test')
       .onSnapshot((snapshot)=>{
@@ -41,6 +62,7 @@ function firebaseData(){
 function Discussions ({title, discussions})
 {
   const datas = firebaseData();
+  getImageURL();
   const [modalOpen, setmodalOpen] = useState(false)
   const handleButtonClick = () => {
     setmodalOpen(true)
@@ -52,41 +74,33 @@ function Discussions ({title, discussions})
     setmodalOpen(false);
   }
   return(
-  <Card small className="h-100">
+  <Card  style={{
+    justifyContent: 'center',
+    alignItems: 'center',
+  }}>
     <CardHeader className="border-bottom">
       <h6 className="m-0"> Pending Summons </h6>
     </CardHeader>
+    {/*<img src= "https://place-hold.it/300x200" alt="test"/>*/}
+    {datas.map((data) => (
+    <div>
+    <img alt="test" id="myimg"/>
     <CardBody className="p-0">
-      {datas.map((data) => (
         <div key={data.id} className="blog-comments__item d-flex p-3">
-          {/* Avatar */}
-          <div className="blog-comments__avatar mr-3">
-            
-            {<img src= {data.location} alt="test"/>}
-          </div>
-
-          {/* Content */}
           <div className="blog-comments__content">
             {/* Content :: Title */}
             <div className="blog-comments__mseta text-mutes">
               <a className="text-secondary" /*href={discussion.author.url}*/>
                 Case ID: {data.id}
               </a>
-              {/*<CardImg top src="https://place-hold.it/200x100" />*/}
-              <a className="text-secondary" /*href={discussion.pconst [loading, setLoading] = useState(true)ost.url}*/>
-                {data.name}
-              </a>
-              <span className="text-mutes">- {data.name}</span>
             </div>
-
-            {/* Content :: Body */}
-            <p className="m-0 my-1 mb-2 text-muted">
+             {/* Content :: Body */}
+             <p className="m-0 my-1 mb-2 text-muted">
               Date: {data.date}
               </p>
             <p className="m-0 my-1 mb-2 text-muted">
             Location: {data.place}
             </p>
-
             {/* Content :: Actions */}
             <div className="blog-comments__actions">
               <ButtonGroup size="sm">
@@ -95,13 +109,6 @@ function Discussions ({title, discussions})
                   </span>{" "}
                   Details
                 </Button>
-                <Modal open={modalOpen} sm="lg">
-                  <ModalHeader> {data.name}</ModalHeader>
-                  <ModalBody>👋 {data.id} </ModalBody>
-                  <Button squared theme="light" onClick = {handleModalClick}>
-                    CLOSE
-                  </Button>
-                   </Modal>
                 <Button theme="white">
                   <span className="text-success">
                     <i className="material-icons">check</i>
@@ -112,8 +119,9 @@ function Discussions ({title, discussions})
             </div>
           </div>
         </div>
-      ))}
     </CardBody>
+    </div>
+    ))}
 
     <CardFooter className="border-top">
       <Row>

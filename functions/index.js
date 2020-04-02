@@ -1,7 +1,9 @@
+
 const functions = require('firebase-functions');
 const nodemailer = require("nodemailer");
 const admin = require('firebase-admin');
 admin.initializeApp();
+
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -73,3 +75,20 @@ exports.createUser = functions.firestore
     });
     
 });
+
+exports.generateThumbnail = functions.storage.object().onFinalize(async (object) => {
+    console.log(object.name);
+    /*
+    storageRef.child(object.name).getDownloadURL().then(function(url) {
+        // `url` is the download URL for 'images/stars.jpg'
+    
+        // Or inserted into an <img> element:
+        console.log(object.name);
+        console.log(url);
+        var img = document.getElementById('myimg');
+        img.src = url;
+    }).catch(function(error) {
+        // Handle any errors
+    });
+    */
+  });

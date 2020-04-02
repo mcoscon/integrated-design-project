@@ -17,24 +17,21 @@ const BlogOverview = ({ smallStats }) => (
       <PageTitle title="Dashboard" subtitle="Offences Overview" className="text-sm-left mb-3" />
     </Row>
 
-    {/* Small Stats Blocks */}
-    <Row>
-    {/* Insert code bottom here */}
-    </Row>
+
 
     <Row>
         {/* Discussions */}
-      <Col lg="5" md="12" sm="12" className="mb-4">
+      <Col  className="mb-4">
         <Discussions />
       </Col>
       
       {/* Users by Device */}
-      <Col lg="4" md="6" sm="12" className="mb-4">
+      <Col  className="mb-4">
         <UsersByDevice />
       </Col>
 
       {/* Top Referrals */}
-      <Col lg="3" md="12" sm="12" className="mb-4">
+      <Col  className="mb-4">
         <TopReferrals />
       </Col>
     </Row>

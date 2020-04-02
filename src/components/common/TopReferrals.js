@@ -96,10 +96,6 @@ TopReferrals.defaultProps = {
     {
       title: "Ria",
       value: "6,218"
-    },
-    {
-      title: "E-mart",
-      value: "1,218"
     }
   ]
 };

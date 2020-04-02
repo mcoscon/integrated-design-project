@@ -49,7 +49,10 @@ class UsersByDevice extends React.Component {
   render() {
     const { title } = this.props;
     return (
-      <Card small>
+      <Card style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
         <CardHeader className="border-bottom">
           <h6 className="m-0">{title}</h6>
         </CardHeader>
