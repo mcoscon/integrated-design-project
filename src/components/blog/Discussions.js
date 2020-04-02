@@ -20,7 +20,6 @@ import {
 } from "shards-react";
 
 
-
 function getImageURL(){
 var storageRef = firebase.storage().ref();
 storageRef.child('images/appendix_diggypod-300x200.jpg').getDownloadURL().then(function(url) {
@@ -42,26 +41,48 @@ function firebaseData(){
 var storageRef = storage.ref();
 var spaceRef = storageRef.child('images/appendix_diggypod-300x200.jpg');
 */
+useEffect(() => {
   const [data, setData] = useState([]);
-  useEffect(()=>{
-    firebase
-      .firestore()
-      .collection('test')
-      .onSnapshot((snapshot)=>{
-        const newData = snapshot.docs.map((doc) => ({
-          id: doc.id, 
-          ...doc.data()
-        }))
-        //console.log("Document data:", snapshot.docs[0].data())
-        setData(newData)
-      })
-  }, [])
-  return data
+  const unsubscribe = firebase
+    .db.collection('myCollectionName')
+    .onSnapshot(snapshot => {
+      if (snapshot.size) {
+        // we have something
+        let myDataArray = []
+        snapshot.forEach(doc =>
+        myDataArray.push({ ...doc.data() })
+        )
+        setData(myDataArray)
+      } else {
+        // it's empty
+      }
+  });
+  return () => {
+    unsubscribe()
+  }
+}, [firebase])
 }
+
 
 function Discussions ({title, discussions})
 {
-  const datas = firebaseData();
+  const [datas, setData] = useState([]);
+  useEffect(() => {
+    firebase.ref('users')
+      .onSnapshot(snapshot => {
+        if (snapshot.size) {
+          // we have something
+          let myDataArray = []
+          snapshot.forEach(doc =>
+          myDataArray.push({ ...doc.data() })
+          )
+          setData(myDataArray)
+        } else {
+          // it's empty
+        }
+    });
+  }, [firebase])
+
   getImageURL();
   const [modalOpen, setmodalOpen] = useState(false)
   const handleButtonClick = () => {
