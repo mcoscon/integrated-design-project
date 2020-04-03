@@ -4,7 +4,7 @@
 </a>
 </p>
 
-<h1 align="center" style="border-bottom: none !important; margin-bottom: 5px !important;"><a href="https://designrevision.com/downloads/shards-dashboard-lite-react/">Shards Dashboard React</a></h1>
+<h1 align="center" style="border-bottom: none !important; margin-bottom: 5px !important;"><a href="https://designrevision.com/downloads/shards-dashboard-lite-react/">Integrated Design Project</a></h1>
 <p align="center">
   <a href="#">
     <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" />
@@ -85,20 +85,17 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 
 <br />
 
-### 🌟 Pro Version
-
-If you're looking for something more, check out [Shards Dashboard Pro React](https://designrevision.com/downloads/shards-dashboard-pro-react/) which features many more custom templates and components. Use the `GITHUB15` coupon code for a **15% discount off the current price**.
-
-<br />
-
 ### Built using
+- [Reactjs](https://reactjs.org/)
+- [Material UI](https://material-ui.com/)
+- [Firebase](https://firebase.google.com/)
+- [Raspberry PI 3B+](https://www.raspberrypi.org/)
+- [Intel Neural Compute Stick](https://software.intel.com/en-us/articles/intel-movidius-neural-compute-stick)
+- [Nodejs](https://nodejs.org/en/)
+- [Pyrebase](https://github.com/thisbejim/Pyrebase)
 
-- [Shards React](https://github.com/designrevision/shards-react)
-- [Chart.js](https://www.chartjs.org/)
-- [Flux](https://facebook.github.io/flux/)
-- [No UI Slider](https://refreshless.com/nouislider/)
-- [React Datepicker](https://www.npmjs.com/package/react-datepicker)
-- [Quill](https://quilljs.com/)
+### Languages
+
 
 <br />
 
