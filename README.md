@@ -31,10 +31,6 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 
 <br />
 
-> ✨ **Note:** You can download the Sketch files from the official product page.
-
-<br />
-
 ### Quick Start
 
 * Install dependencies by running `yarn` or `npm install`.
