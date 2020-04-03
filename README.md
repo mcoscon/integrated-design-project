@@ -37,11 +37,12 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 * Run `npm run start` to start the local development server.
 * Run `npm run build` to deploy all static files into the build folder and then run `firebase deploy` to deploy the dashboard to Firebase Hosting.
 
+<br />
+
 ### Raspberry PI Quick Start 
 * Python 3.6 or greater should be installed in your system.
 * Pyrebase should be installed in your system.
 * Start the raspberrySend.py script by `python -m raspberrySend`
-
 
 <br />
 
