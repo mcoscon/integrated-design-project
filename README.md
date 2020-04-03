@@ -95,10 +95,7 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 - [Pyrebase](https://github.com/thisbejim/Pyrebase)
 
 ### Languages
-
+- Python
+- Javascript
 
 <br />
-
-### Changelog
-
-Please check out the [CHANGELOG](CHANGELOG.md).
