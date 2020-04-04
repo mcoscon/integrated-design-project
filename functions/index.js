@@ -14,12 +14,12 @@ const transporter = nodemailer.createTransport({
   });
 
 
-exports.createUser = functions.firestore
-.document('test/{Id}')
-.onCreate((snap, context) => {
+exports.newUpdate = functions.database
+.ref('/users/{userID}')
+.onCreate((snapshot, context) => {
     // Get an object representing the document
     // e.g. {'name': 'Marie', 'age': 66}
-    const datas = snap.data();
+    const original = snapshot.val();
 
     // access a particular field as you would any JS propert
     const mailOptions = {
@@ -43,12 +43,12 @@ exports.createUser = functions.firestore
                                         <tr>
                                             <td style="color: #153643; font-family: Arial, sans-serif; font-size: 24px;">
                                                 
-                                                <b> "${datas.date}</b>
+                                                <b> "${original.Timestamp}</b>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                                ${datas.place}
+                                                ${original.Location}
                                             </td>
                                         </tr>
                                         <tr>
@@ -76,19 +76,3 @@ exports.createUser = functions.firestore
     
 });
 
-exports.generateThumbnail = functions.storage.object().onFinalize(async (object) => {
-    console.log(object.name);
-    /*
-    storageRef.child(object.name).getDownloadURL().then(function(url) {
-        // `url` is the download URL for 'images/stars.jpg'
-    
-        // Or inserted into an <img> element:
-        console.log(object.name);
-        console.log(url);
-        var img = document.getElementById('myimg');
-        img.src = url;
-    }).catch(function(error) {
-        // Handle any errors
-    });
-    */
-  });

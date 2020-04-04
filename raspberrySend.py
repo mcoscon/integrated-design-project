@@ -38,7 +38,7 @@ def sendFirebase(db, stor):
     imageURL = stor.child(imagePath).get_url(None)
 
     ## Example data to send
-    data = {"Date": dateToday, "Time": dt_string,"Location": 'Curtin University',"ImageURL": imageURL}
+    data = {"Timestamp": dt_string,"Location": 'Lot 9181',"ImageURL": imageURL}
     print("data uploaded!")
     db.child("users").push(data)
 

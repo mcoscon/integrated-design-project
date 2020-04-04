@@ -1,7 +1,7 @@
 // https://www.youtube.com/watch?v=rSgbYCdc4G0
 // Need to import array of images
 import React, {useState, useEffect} from "react";
-import firebase from '/home/marcos/Documents/github-stuff/shards-dashboard-react/src/fire.js'
+import firebase from '/home/marcos/Documents/github-stuff/idp-app/src/fire.js'
 import PropTypes from "prop-types";
 import {
   Card,
@@ -18,82 +18,32 @@ import {
   CardImg
 
 } from "shards-react";
-
-
-function getImageURL(){
-var storageRef = firebase.storage().ref();
-storageRef.child('images/appendix_diggypod-300x200.jpg').getDownloadURL().then(function(url) {
-  // `url` is the download URL for 'images/stars.jpg
-    console.log(url);
-    // Or inserted into an <img> element:
-    var img = document.getElementById('myimg');
-    img.src = url;
-  }).catch(function(error) {
-    // Handle any errors
-  });
-}
-
-
-
-function firebaseData(){
-  /*
-  var storage = firebase.storage();
-var storageRef = storage.ref();
-var spaceRef = storageRef.child('images/appendix_diggypod-300x200.jpg');
-*/
-useEffect(() => {
-  const [data, setData] = useState([]);
-  const unsubscribe = firebase
-    .db.collection('myCollectionName')
-    .onSnapshot(snapshot => {
-      if (snapshot.size) {
-        // we have something
-        let myDataArray = []
-        snapshot.forEach(doc =>
-        myDataArray.push({ ...doc.data() })
-        )
-        setData(myDataArray)
-      } else {
-        // it's empty
-      }
-  });
-  return () => {
-    unsubscribe()
-  }
-}, [firebase])
-}
-
+import { useObject,useList, useListKeys, useListVals } from 'react-firebase-hooks/database';
+ 
 
 function Discussions ({title, discussions})
 {
-  const [datas, setData] = useState([]);
-  useEffect(() => {
-    firebase.ref('users')
-      .onSnapshot(snapshot => {
-        if (snapshot.size) {
-          // we have something
-          let myDataArray = []
-          snapshot.forEach(doc =>
-          myDataArray.push({ ...doc.data() })
-          )
-          setData(myDataArray)
-        } else {
-          // it's empty
-        }
+  const [data, setData] = useState([]);
+  const handleButtonClick =()=>
+  {
+    console.log("hi");
+  }
+
+  useEffect(()=> {
+    const dataRef = firebase.database().ref('users');
+    dataRef.on('value', function(snapshot){
+        var returnArr = [];
+        snapshot.forEach(function(childSnapshot) {
+        var item = childSnapshot.val();
+        item.key = childSnapshot.key;
+        console.log(item)
+        returnArr.push(item);
     });
-  }, [firebase])
+    setData(returnArr)
+  })
+  return () => dataRef.off('value', dataRef);
+},[firebase.database])
 
-  getImageURL();
-  const [modalOpen, setmodalOpen] = useState(false)
-  const handleButtonClick = () => {
-    setmodalOpen(true)
-    console.log(modalOpen)
-    console.log("Clicked!!")
-  }
-
-  const handleModalClick = () => {
-    setmodalOpen(false);
-  }
   return(
   <Card  style={{
     justifyContent: 'center',
@@ -102,25 +52,24 @@ function Discussions ({title, discussions})
     <CardHeader className="border-bottom">
       <h6 className="m-0"> Pending Summons </h6>
     </CardHeader>
-    {/*<img src= "https://place-hold.it/300x200" alt="test"/>*/}
-    {datas.map((data) => (
+    {data.map((d) => (
     <div>
-    <img alt="test" id="myimg"/>
+    <img src={d.ImageURL}/>
     <CardBody className="p-0">
-        <div key={data.id} className="blog-comments__item d-flex p-3">
+        <div key={d.key} className="blog-comments__item d-flex p-3">
           <div className="blog-comments__content">
             {/* Content :: Title */}
             <div className="blog-comments__mseta text-mutes">
               <a className="text-secondary" /*href={discussion.author.url}*/>
-                Case ID: {data.id}
+                Case ID: {d.key}
               </a>
             </div>
              {/* Content :: Body */}
-             <p className="m-0 my-1 mb-2 text-muted">
-              Date: {data.date}
+              <p className="m-0 my-1 mb-2 text-muted">
+              Timestamp: {d.Timestamp}
               </p>
             <p className="m-0 my-1 mb-2 text-muted">
-            Location: {data.place}
+            Location: {d.Location}
             </p>
             {/* Content :: Actions */}
             <div className="blog-comments__actions">
@@ -143,7 +92,6 @@ function Discussions ({title, discussions})
     </CardBody>
     </div>
     ))}
-
     <CardFooter className="border-top">
       <Row>
         <Col className="text-center view-report">
