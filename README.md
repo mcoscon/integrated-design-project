@@ -24,7 +24,7 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 <br />
 
 
-![Output sample](https://github.com/mcoscon/integrated-design-project/blob/master/ezgif.com-video-to-gif (1).gif)
+![Output sample](https://github.com/mcoscon/integrated-design-project/blob/master/ProgressDemo.gif)
 
 
 <br />
