@@ -16,7 +16,7 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 </p>
 
 <p align="center">
-  <a href="https://www.google.com/">
+  <a href="https://idp-app-70f95.firebaseapp.com">
     <img height="55px" src="assets/btn-live-preview.png" />
   </a>
 </p>
