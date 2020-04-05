@@ -24,9 +24,7 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 <br />
 
 <p align="center">
-<a href="https://designrevision.com/downloads/shards-dashboard-lite-react">
 ![Output sample](https://github.com/mcoscon/integrated-design-project/ezgif.com-video-to-gif.gif)
-</a>
 </p>
 
 <br />
