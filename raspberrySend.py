@@ -29,7 +29,7 @@ def sendFirebase(db, stor):
 
     ## Example image to send
     random = str(uuid.uuid1())
-    imagePath = "images/" + random + ".jpg"
+    imagePath = random + ".jpg"
     print (imagePath)
     stor.child(imagePath).put("test.jpg")
     time.sleep(3)
