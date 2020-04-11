@@ -19,7 +19,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 245,
+    minWidth: 200,
   },
   media: {
     height: 0,
@@ -40,10 +40,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Cards() {
+export default function Cards({contents}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-
+  const [content, setContents] = React.useState(contents);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -62,17 +62,17 @@ export default function Cards() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="id"
-        subheader="date"
+        title="Case" 
+        subheader={content.Location}
       />
       <CardMedia
         className={classes.media}
-        image="/static/images/cards/paella.jpg"
+        image={content.ImageURL}
         title="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Details fo fsfs sf ddd 
+          {"Offence commited on " + content.Timestamp}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

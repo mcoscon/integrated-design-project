@@ -10,9 +10,10 @@ import PlaceOutlinedIcon from '@material-ui/icons/PlaceOutlined';
 import InteractiveList from "../src/locationfirstcard";
 import AcccessibleTable from "../src/alltimetable";
 import SimpleList from "../src/finepayments"
+import Divider from '@material-ui/core/Divider';;
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    maxWidth: 400,
   },
   root2: {
     minWidth: 275,
@@ -27,12 +28,11 @@ const useStyles = makeStyles({
     fontSize: 14,
   },
   pos: {
-    marginTop:12,
-    marginBottom: 12
+
+    marginBottom: 9
   },
   pos2: {
-    marginTop:12,
-    marginBottom: 6,
+    marginTop:9,
   },
   title:{
     marginBottom: 20,
@@ -46,7 +46,7 @@ export default function StatsCard() {
 
   return (
     
-      <div>
+      <div className = {classes.root}>
            <Typography variant="h5" component="h2" className={classes.title}>
           Todays Statistics
         </Typography>
@@ -56,7 +56,8 @@ export default function StatsCard() {
             <SmokingRoomsOutlinedIcon fontSize='large' />
             Smoking Offences
         </Typography>
-        <Typography className={classes.pos} >
+        <Divider  />
+        <Typography className={classes.pos2} >
           <PlaceOutlinedIcon fontSize='large'/>
               Locations
             

@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 275,
+    maxWidth: 400,
   },
   title:{
       marginTop:20,
