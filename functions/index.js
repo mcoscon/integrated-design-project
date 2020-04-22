@@ -11,8 +11,8 @@ admin.initializeApp();
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: '700016387@student.curtin.edu.my',
-      pass: 'Rasalghul14$' // naturally, replace both with your real credentials or an application-specific password
+      user:process.env.USER_EMAIL,
+      pass: process.env.USER_PASS // naturally, replace both with your real credentials or an application-specific password
     }
   });
 
@@ -26,7 +26,7 @@ exports.newUpdate = functions.database
 
     client.messages
   . create({
-        body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+        body: 'This is to alert you that an offense was made at ' + original.Location + ' at ' + original.Timestamp+ '. Please view your dashboard at https://idp-app-70f95.firebaseapp.com/ for more details.',
         from: '+12028836352',
          to: '+601136776256'
     })
