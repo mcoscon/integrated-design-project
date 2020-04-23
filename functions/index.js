@@ -87,4 +87,3 @@ exports.newUpdate = functions.database
     
 });
 
-

@@ -16,18 +16,16 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 </p>
 
 <p align="center">
-  <a href="https://www.google.com/">
+  <a href="https://idp-app-70f95.firebaseapp.com">
     <img height="55px" src="assets/btn-live-preview.png" />
   </a>
 </p>
 
 <br />
 
-<p align="center">
-<a href="https://designrevision.com/downloads/shards-dashboard-lite-react">
-<img src="https://media.giphy.com/media/KpAPQVW9lWnWU/giphy.gif" width="650" />
-</a>
-</p>
+
+![Output sample](https://github.com/mcoscon/integrated-design-project/blob/master/ProgressDemo.gif)
+
 
 <br />
 
@@ -50,6 +48,7 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 
 - The project contains two parts, a machine learning model is run on edge and executes inferences on the captured frames from the camera. Once detected, relevant data (i.e time, date, location) is sent to the database where it can be displayed on a Dashboard. Moreover, an alert can be sent to an email once an offence has been detected.
 
+- The index.js file under the Functions folder contains the cloud function that sends an alert to the specified email recipient once a detection occurs.
 <br />
 
 ### Built using
@@ -68,3 +67,6 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 - Javascript
 
 <br />
+
+### To-dos
+- Twilio SMS integration
