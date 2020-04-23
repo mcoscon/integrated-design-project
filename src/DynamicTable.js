@@ -54,6 +54,7 @@ export default function DynamicTable(props) {
 function getFullName(item) {
   if(item.Location == "Lot 9181"){
     count++;
+    console.log(count);
   }
 }
 details.map(getFullName)

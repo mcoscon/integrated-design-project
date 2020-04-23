@@ -56,6 +56,7 @@ export default function SpacingGrid() {
         console.log(item)
         returnArr.push(item);
     });
+    console.log("hi")
     setData(returnArr)
   })
   return () => dataRef.off('value', dataRef);
@@ -79,6 +80,9 @@ export default function SpacingGrid() {
               <Cards contents ={d} className={classes.paper} />
             </Grid>
           ))}
+          <div>
+            hi
+          </div>
         </Grid>
       </Grid>
 

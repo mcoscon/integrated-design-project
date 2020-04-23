@@ -2,8 +2,9 @@
 const functions = require('firebase-functions');
 const nodemailer = require("nodemailer");
 const admin = require('firebase-admin');
-const accountSid = 'ACd5dd547737971988ec77e6014c9d290e';
-const authToken = 'ba4e35dab390c16ff9786bfbc0a86300';
+require('dotenv').config()
+const accountSid = process.env.SID;
+const authToken = process.env.AUTH;
 const client = require('twilio')(accountSid, authToken);
 admin.initializeApp();
 
