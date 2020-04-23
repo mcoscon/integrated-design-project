@@ -41,10 +41,7 @@ def sendFirebase(db, stor):
     data = {"Timestamp": dt_string,"Location": 'Lot 9181',"ImageURL": imageURL}
     print("data uploaded!")
     db.child("users").push(data)
-    locationCount = db.child("curtin_university_count").get()
-    newCountValue = locationCount.val() + 1
-    db.child("curtin_university_count").push(newCountValue)
-
+    
 ## Main program
 db, stor = startFirebase()
 sendFirebase(db, stor)

@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AcccessibleTable from "./Tables";
+import StaticTable from "./StaticTable";
+import DynamicTable from "./DynamicTable"
 import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles({
   root: {
@@ -34,19 +35,19 @@ const useStyles = makeStyles({
 export default function StatsCard({contents}) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-
+  const title1 = "Todays Statistics";
   return (
     
     
     <Grid container className={classes.root} spacing={3}>
     <Grid className = {classes.statscard} item xs={4}>
-       <AcccessibleTable data = {contents} title = "Todays Statistics"></AcccessibleTable>
+       <DynamicTable title = "Today's Statistics"></DynamicTable>
     </Grid>
     <Grid className = {classes.statscard} item xs={4}>
-       <AcccessibleTable title = "All Time Statistics"></AcccessibleTable>
+       <StaticTable title = "All Time Statistics"></StaticTable>
     </Grid>
     <Grid className = {classes.statscard} item xs={4}>
-       <AcccessibleTable title = "Fine Payments"></AcccessibleTable>
+    <StaticTable  title = "Fine Payments"></StaticTable>
     </Grid>
     </Grid>
   );
