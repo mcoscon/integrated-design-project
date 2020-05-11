@@ -29,26 +29,26 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 
 <br />
 
-### Dashboard Quick Start 
+### Dashboard User Interface Quick Start 
 * Nodejs, Firebase and Firebase Command Line Interface (CLI) should be first installed on your system.
 * Install dependencies by running `yarn` or `npm install` on the root folder.
 * Run `npm run start` to start the local development server.
 * Run `npm run build` to deploy all static files into the build folder and then run `firebase deploy` to deploy the dashboard to Firebase Hosting.
+* Do note that in the Raspberry PI Quick Start, the two methods are interfaced to a Firebase web-applicatino project.
 
 <br />
 
 ### Raspberry PI Quick Start 
-* Python 3.6 or greater should be installed in your system.
-* Pyrebase should be installed in your system.
-* Start the raspberrySend.py script by `python -m raspberrySend`
+#### General Requirements
+* Python version 3.6, pillow module, Twilio API, AWS Python API for Method 1, Pyrebase API for Method 2
+#### MQTT over AWS IoT Core
+* A registered AWS account is needed, with the following service enabled: AWS IoT, AWS Lambda & AWS Cloudwatch.
+* A zip file containing the AWS Lambda code (in lambda-function) is to be uploaded to the Lambda console. This is to deploy external python dependencies (i.e pillow module & Twilio) to lambda. The methods [here](https://www.twilio.com/blog/serverless-phone-number-validation-aws-lambda-python-twilio) was modified and used for this project.
+* Run the `idpMQTT.py` script which contains the publishing MQTT Client.
+ #### HTTP with Firebase
+* A registered firebase project is needed with the credentials written to `raspberrySend.py` script.
+* Run the `idpMQTT.py` script which contains a HTTP post method to Firebase storage & Realtime database.
 
-<br />
-
-### Project Structure
-
-- The project contains two parts, a machine learning model is run on edge and executes inferences on the captured frames from the camera. Once detected, relevant data (i.e time, date, location) is sent to the database where it can be displayed on a Dashboard. Moreover, an alert can be sent to an email once an offence has been detected.
-
-- The index.js file under the Functions folder contains the cloud function that sends an alert to the specified email recipient once a detection occurs.
 <br />
 
 ### Built using
@@ -57,16 +57,7 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 - [Firebase](https://firebase.google.com/)
 - [Raspberry PI 3B+](https://www.raspberrypi.org/)
 - [Intel Neural Compute Stick](https://software.intel.com/en-us/articles/intel-movidius-neural-compute-stick)
-- [Nodejs](https://nodejs.org/en/)
 - [Pyrebase](https://github.com/thisbejim/Pyrebase)
+- [AWS
 
 <br />
-
-### Languages
-- Python
-- Javascript
-
-<br />
-
-### To-dos
-- Twilio SMS integration
