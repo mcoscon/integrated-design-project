@@ -58,6 +58,6 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 - [Raspberry PI 3B+](https://www.raspberrypi.org/)
 - [Intel Neural Compute Stick](https://software.intel.com/en-us/articles/intel-movidius-neural-compute-stick)
 - [Pyrebase](https://github.com/thisbejim/Pyrebase)
-- [AWS
+- [AWS service](https://aws.amazon.com/)
 
 <br />
