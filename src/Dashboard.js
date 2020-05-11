@@ -80,9 +80,6 @@ export default function SpacingGrid() {
               <Cards contents ={d} className={classes.paper} />
             </Grid>
           ))}
-          <div>
-            hi
-          </div>
         </Grid>
       </Grid>
 

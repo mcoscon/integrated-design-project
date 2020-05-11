@@ -1,13 +1,13 @@
 
 const functions = require('firebase-functions');
+require('dotenv').config()
 const nodemailer = require("nodemailer");
 const admin = require('firebase-admin');
-require('dotenv').config()
-const accountSid = process.env.SID;
-const authToken = process.env.AUTH;
-const client = require('twilio')(accountSid, authToken);
+//const accountSid = process.env.SID;
+//const authToken = process.env.AUTH;
+//onst client = require('twilio')(accountSid, authToken);
 admin.initializeApp();
-
+/*
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -16,8 +16,9 @@ const transporter = nodemailer.createTransport({
       pass: process.env.USER_PASS // naturally, replace both with your real credentials or an application-specific password
     }
   });
+  */
 
-
+  /*
 exports.newUpdate = functions.database
 .ref('/users/{userID}')
 .onCreate((snapshot, context) => {
@@ -88,3 +89,4 @@ exports.newUpdate = functions.database
     
 });
 
+*/
