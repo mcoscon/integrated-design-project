@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-This is the proposed project for EEET 4002 Integrated Design Project. The project is a smoker detection system that alerts authorities or premise owners when an offence has been made on a non-smoking zone. 
+This is the proposed project for EEET 4002 Integrated Design Project. The project is a smoker detection system that alerts authorities or premise owners when an offence has been made on a non-smoking zone. Visit https://www.youtube.com/watch?v=bJ7rTVDnL4Q for a brief rundown of the system and the full demo.
 </p>
 
 <p align="center">
