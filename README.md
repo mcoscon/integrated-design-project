@@ -21,13 +21,6 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
   </a>
 </p>
 
-<br />
-
-
-![Output sample](https://github.com/mcoscon/integrated-design-project/blob/master/ProgressDemo.gif)
-
-
-<br />
 
 ### Dashboard User Interface Quick Start 
 * Nodejs, Firebase and Firebase Command Line Interface (CLI) should be first installed on your system.
