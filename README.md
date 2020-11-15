@@ -31,7 +31,7 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 
 <br />
 
-![Alt text](assets/webapp.jpg?raw=true "Title")
+![Alt text](assets/webapp.png?raw=true "Title")
 
 ### Raspberry PI Quick Start 
 #### General Requirements
