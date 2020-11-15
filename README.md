@@ -30,7 +30,9 @@ This is the proposed project for EEET 4002 Integrated Design Project. The projec
 * Do note that in the Raspberry PI Quick Start, the two methods are interfaced to a Firebase web-applicatino project.
 
 <br />
-<img src="assets/webapp.png" width="250" />
+
+![Alt text](assets/webapp.jpg?raw=true "Title")
+
 ### Raspberry PI Quick Start 
 #### General Requirements
 * Python version 3.6, pillow module, Twilio API, AWS Python API for Method 1, Pyrebase API for Method 2
